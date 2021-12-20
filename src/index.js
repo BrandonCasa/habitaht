@@ -1,9 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import { ThemeProvider } from "styled-components";
 import { Provider } from "react-redux";
+import App from "./App";
+import "./index.css";
 import store from "./redux/store";
 
 ReactDOM.render(

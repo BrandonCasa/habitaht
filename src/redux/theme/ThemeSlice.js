@@ -1,44 +1,46 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const intialDarkTheme = {
+  name: "Dark Theme",
+  backgrounds: {
+    background: "#323232",
+    backgroundGradientColorA: "#252525",
+    backgroundGradientColorB: "#3f3f3f",
+  },
+  textColors: {
+    textNormal: "#b7b7b7",
+    textAlert: "#fe6e6e",
+    textConfirm: "#7eff9c",
+  },
+  boxShadows: {
+    boxShadowA: "#202020",
+    boxShadowActiveA: "#1b1b1b",
+    boxShadowB: "#414141",
+    boxShadowActiveB: "#464646",
+  },
+};
+
 export const themeSlice = createSlice({
   name: "theme",
   initialState: {
-    theme: "dark",
+    title: "dark",
+    currentTheme: intialDarkTheme,
     savedThemes: {
-      dark: {
-        name: "Dark Theme",
-        backgrounds: {
-          background: "#323232",
-        },
-        textColors: {
-          textNormal: "#b7b7b7",
-          textAlert: "#fe6e6e",
-          textConfirm: "#7eff9c",
-        },
-      },
+      dark: intialDarkTheme,
     },
   },
   reducers: {
     setTheme: (state, action) => {
-      state.theme = action.payload;
+      state.title = action.payload;
+      state.currentTheme = state.savedThemes[action.payload];
     },
     addTheme: {
       reducer: (state, action) => {
-        const themeSettings = {
-          name: action.payload.name,
-          backgrounds: {
-            background: action.payload.colors.background,
-          },
-          textColors: {
-            textNormal: action.payload.colors.textNormal,
-            textAlert: action.payload.colors.textAlert,
-            textConfirm: action.payload.colors.textConfirm,
-          },
-        };
-        state.savedThemes[action.payload.ID] = themeSettings;
+        state.savedThemes[action.payload.title] = action.payload.themeSettings;
         // Whether to set the theme after adding it.
         if (action.payload.setThemeAfter) {
-          state.theme = action.payload.ID;
+          state.title = action.payload.title;
+          state.currentTheme = action.payload.themeSettings;
         }
       },
     },
