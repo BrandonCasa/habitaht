@@ -46,6 +46,6 @@ export const themeSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const { setTheme, addTheme } = themeSlice.actions;
 
-export default counterSlice.reducer;
+export default themeSlice.reducer;
