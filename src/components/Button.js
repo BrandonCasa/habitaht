@@ -5,12 +5,12 @@ const Button = styled.button`
   ${(props) =>
     css`
       & {
-        background: ${darkTheme.background};
+        background: ${darkTheme.backgrounds.background};
         border-radius: 5px;
-        box-shadow: 2px 2px 4px ${darkTheme.boxShadowA}, -2px -2px 4px ${darkTheme.boxShadowB}, inset 2px 2px 4px #ffffff00, inset -2px -2px 4px #ffffff00;
+        box-shadow: 2px 2px 4px ${darkTheme.boxShadows.boxShadowA}, -2px -2px 4px ${darkTheme.boxShadows.boxShadowB}, inset 2px 2px 4px #ffffff00, inset -2px -2px 4px #ffffff00;
         border: none;
         padding: 0.25em 1em;
-        color: ${darkTheme.textNormal};
+        color: ${darkTheme.textColors.textNormal};
         transition: box-shadow 300ms ease-in-out;
       }
       & span {
@@ -20,11 +20,11 @@ const Button = styled.button`
         padding: 0px 6px;
       }
       &:hover {
-        box-shadow: 2px 2px 4px #ffffff00, -2px -2px 4px #ffffff00, inset 2px 2px 4px ${darkTheme.boxShadowA}, inset -2px -2px 4px ${darkTheme.boxShadowB};
+        box-shadow: 2px 2px 4px #ffffff00, -2px -2px 4px #ffffff00, inset 2px 2px 4px ${darkTheme.boxShadows.boxShadowA}, inset -2px -2px 4px ${darkTheme.boxShadows.boxShadowB};
         transition: box-shadow 85ms ease-in-out;
       }
       &:active {
-        box-shadow: 2px 2px 4px #ffffff00, -2px -2px 4px #ffffff00, inset 2px 2px 2px ${darkTheme.boxShadowActiveA}, inset -2px -2px 2px ${darkTheme.boxShadowActiveB};
+        box-shadow: 2px 2px 4px #ffffff00, -2px -2px 4px #ffffff00, inset 2px 2px 2px ${darkTheme.boxShadows.boxShadowActiveA}, inset -2px -2px 2px ${darkTheme.boxShadows.boxShadowActiveB};
         transition: box-shadow 85ms ease-in-out;
       }
     `}
@@ -33,7 +33,7 @@ const Button = styled.button`
     props.bumpedin &&
     css`
       & {
-        background: linear-gradient(145deg, ${darkTheme.backgroundGradientColorA}, ${darkTheme.backgroundGradientColorB});
+        background: linear-gradient(145deg, ${darkTheme.backgrounds.backgroundGradientColorA}, ${darkTheme.backgrounds.backgroundGradientColorB});
       }
     `}
 
@@ -41,7 +41,7 @@ const Button = styled.button`
     props.bumpedout &&
     css`
       & {
-        background: linear-gradient(145deg, ${darkTheme.backgroundGradientColorB}, ${darkTheme.backgroundGradientColorA});
+        background: linear-gradient(145deg, ${darkTheme.backgrounds.backgroundGradientColorB}, ${darkTheme.backgrounds.backgroundGradientColorA});
       }
     `}
 
@@ -49,16 +49,16 @@ const Button = styled.button`
     props.indent &&
     css`
       & {
-        background: ${darkTheme.background};
-        box-shadow: inset 2px 2px 4px ${darkTheme.boxShadowA}, inset -2px -2px 4px ${darkTheme.boxShadowB}, 2px 2px 4px #ffffff00, -2px -2px 4px #ffffff00;
+        background: ${darkTheme.backgrounds.background};
+        box-shadow: inset 2px 2px 4px ${darkTheme.boxShadows.boxShadowA}, inset -2px -2px 4px ${darkTheme.boxShadows.boxShadowB}, 2px 2px 4px #ffffff00, -2px -2px 4px #ffffff00;
         transition: box-shadow 300ms ease-in-out;
       }
       &:hover {
-        box-shadow: inset 2px 2px 4px #ffffff00, inset -2px -2px 4px #ffffff00, 2px 2px 4px ${darkTheme.boxShadowA}, -2px -2px 4px ${darkTheme.boxShadowB};
+        box-shadow: inset 2px 2px 4px #ffffff00, inset -2px -2px 4px #ffffff00, 2px 2px 4px ${darkTheme.boxShadows.boxShadowA}, -2px -2px 4px ${darkTheme.boxShadows.boxShadowB};
         transition: box-shadow 85ms ease-in-out;
       }
       &:active {
-        box-shadow: inset 2px 2px 4px #ffffff00, inset -2px -2px 4px #ffffff00, 2px 2px 2px ${darkTheme.boxShadowActiveA}, -2px -2px 2px ${darkTheme.boxShadowActiveB};
+        box-shadow: inset 2px 2px 4px #ffffff00, inset -2px -2px 4px #ffffff00, 2px 2px 2px ${darkTheme.boxShadows.boxShadowActiveA}, -2px -2px 2px ${darkTheme.boxShadows.boxShadowActiveB};
         transition: box-shadow 85ms ease-in-out;
       }
     `}
@@ -67,7 +67,7 @@ const Button = styled.button`
     props.alert &&
     css`
       & {
-        color: ${darkTheme.textAlert};
+        color: ${darkTheme.textColors.textAlert};
       }
     `}
 
@@ -75,7 +75,7 @@ const Button = styled.button`
     props.confirm &&
     css`
       & {
-        color: ${darkTheme.textConfirm};
+        color: ${darkTheme.textColors.textConfirm};
       }
     `}
 `;

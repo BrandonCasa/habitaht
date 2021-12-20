@@ -4,13 +4,13 @@ import darkTheme from "../theme/DarkTheme";
 import ButtonText from "./ButtonText";
 
 const TopBar = styled.div`
-  background: ${darkTheme.background};
-  box-shadow: 2px 2px 8px ${darkTheme.boxShadowA}, -2px -2px 8px ${darkTheme.boxShadowB};
+  background: ${darkTheme.backgrounds.background};
+  box-shadow: 2px 2px 8px ${darkTheme.boxShadows.boxShadowA}, -2px -2px 8px ${darkTheme.boxShadows.boxShadowB};
   border: none;
-  height: 56px;
+  height: 42px;
   padding: 8px 16px;
   display: flex;
-  color: ${darkTheme.textNormal};
+  color: ${darkTheme.textColors.textNormal};
 `;
 
 function TopBarComponent() {

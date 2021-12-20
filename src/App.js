@@ -3,9 +3,11 @@ import TopBarComponent from "./components/TopBar";
 
 function App() {
   return (
-    <div className="App">
-      <TopBarComponent />
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <TopBarComponent />
+      </div>
+    </ThemeProvider>
   );
 }
 
