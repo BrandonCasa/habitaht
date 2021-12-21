@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setTheme, addTheme } from "../redux/theme/themeSlice";
 import styled from "styled-components";
-import darkTheme from "../theme/DarkTheme";
 import Button from "./Button";
 import ButtonText from "./ButtonText";
 import { colord } from "colord";
@@ -13,7 +12,7 @@ const TopBar = styled.div`
   height: 42px;
   padding: 8px 16px;
   display: flex;
-  color: ${darkTheme.textColors.textNormal};
+  color: ${(props) => props.theme.textColors.textNormal};
 `;
 
 function TopBarComponent() {
@@ -25,9 +24,12 @@ function TopBarComponent() {
     const newReference = colord(currentTheme.backgrounds.background).lighten(0.05).toHex();
     const lightnessMultShadow = (colord(newReference).toHsl().l / 100) * 0.35;
     const lightnessMultGradient = (colord(newReference).toHsl().l / 100) * 0.3;
+    let textNormalColor = colord(newReference).toHsl().l;
+    textNormalColor = colord(currentTheme.backgrounds.background).invert().toHex();
+    console.log(textNormalColor);
 
     const newTheme = {
-      name: "Lighter Theme",
+      name: "ThemeA",
       backgrounds: {
         background: newReference,
         backgroundGradientColorA: colord(newReference).darken(lightnessMultGradient).toHex(),
@@ -39,7 +41,11 @@ function TopBarComponent() {
         boxShadowB: colord(newReference).lighten(lightnessMultShadow).toHex(),
         boxShadowActiveB: colord(newReference).lighten(lightnessMultShadow).lighten(0.02).toHex(),
       },
-      textColors: currentTheme.textColors,
+      textColors: {
+        textNormal: textNormalColor,
+        textAlert: currentTheme.textColors.textAlert,
+        textConfirm: currentTheme.textColors.textConfirm,
+      },
     };
     const addPayload = {
       title: "lightened",

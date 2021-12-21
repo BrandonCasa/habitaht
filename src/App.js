@@ -10,7 +10,7 @@ function App() {
 
   return (
     <ThemeProvider theme={currentTheme}>
-      <div className="App">
+      <div className="App" style={{ height: "100vh", width: "100vw", background: currentTheme.backgrounds.background }}>
         <TopBarComponent />
       </div>
     </ThemeProvider>

@@ -1,32 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
+import themeBase from "../../theme/ThemeBase";
 
-const intialDarkTheme = {
-  name: "Dark Theme",
-  backgrounds: {
-    background: "#323232",
-    backgroundGradientColorA: "#252525",
-    backgroundGradientColorB: "#3f3f3f",
-  },
-  textColors: {
-    textNormal: "#b7b7b7",
-    textAlert: "#fe6e6e",
-    textConfirm: "#7eff9c",
-  },
-  boxShadows: {
-    boxShadowA: "#202020",
-    boxShadowActiveA: "#1b1b1b",
-    boxShadowB: "#414141",
-    boxShadowActiveB: "#464646",
-  },
-};
+const intialDarkTheme = themeBase;
 
 export const themeSlice = createSlice({
   name: "theme",
   initialState: {
-    title: "dark",
+    title: "base",
     currentTheme: intialDarkTheme,
     savedThemes: {
-      dark: intialDarkTheme,
+      base: intialDarkTheme,
     },
   },
   reducers: {
