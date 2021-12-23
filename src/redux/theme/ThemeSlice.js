@@ -1,15 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
-import themeBase from "../../theme/ThemeBase";
-
-const intialDarkTheme = themeBase;
+import { darkTheme, lightTheme } from "../../theme/ThemeBase";
 
 export const themeSlice = createSlice({
   name: "theme",
   initialState: {
-    title: "base",
-    currentTheme: intialDarkTheme,
+    title: "dark",
+    currentTheme: darkTheme,
     savedThemes: {
-      base: intialDarkTheme,
+      dark: darkTheme,
+      light: lightTheme,
     },
   },
   reducers: {
@@ -17,20 +16,16 @@ export const themeSlice = createSlice({
       state.title = action.payload;
       state.currentTheme = state.savedThemes[action.payload];
     },
-    addTheme: {
-      reducer: (state, action) => {
-        state.savedThemes[action.payload.title] = action.payload.themeSettings;
-        // Whether to set the theme after adding it.
-        if (action.payload.setThemeAfter) {
-          state.title = action.payload.title;
-          state.currentTheme = action.payload.themeSettings;
-        }
-      },
+    switchTheme: (state) => {
+      console.log(state.title);
+      state.title = state.title === "dark" ? "light" : "dark";
+      state.currentTheme = state.savedThemes[state.title];
+      return;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setTheme, addTheme } = themeSlice.actions;
+export const { setTheme, switchTheme } = themeSlice.actions;
 
 export default themeSlice.reducer;

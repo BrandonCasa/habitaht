@@ -1,30 +1,54 @@
 import { colord } from "colord";
 
-const newReference = colord({ h: 0, s: 0, l: 20 }).toHex();
-const lightnessMultShadow = (colord(newReference).toHsl().l / 100) * 0.35;
-const lightnessMultGradient = (colord(newReference).toHsl().l / 100) * 0.3;
-let textNormalColor = colord(newReference).toHsl().l;
-textNormalColor = colord({ h: 0, s: 0, l: 20 }).invert().toHex();
-console.log(textNormalColor);
+const darkReference = colord({ h: 0, s: 0, l: 20 }).toHex();
+const lightReference = colord({ h: 0, s: 0, l: 80 }).toHex();
 
-const themeBase = {
-  name: "ThemeBase",
+const darkLightnessMultShadow = (colord(darkReference).toHsl().l / 100) * 0.35;
+const darkLightnessMultGradient = (colord(darkReference).toHsl().l / 100) * 0.3;
+const lightLightnessMultShadow = (colord(lightReference).toHsl().l / 100) * 0.35;
+const lightLightnessMultGradient = (colord(lightReference).toHsl().l / 100) * 0.3;
+
+let darkTextNormalColor = colord(darkReference).toHsl().l;
+darkTextNormalColor = colord({ h: 0, s: 0, l: 20 }).invert().toHex();
+let lightTextNormalColor = colord(lightReference).toHsl().l;
+lightTextNormalColor = colord({ h: 0, s: 0, l: 80 }).invert().toHex();
+
+export const darkTheme = {
+  name: "Dark",
   backgrounds: {
-    background: newReference,
-    backgroundGradientColorA: colord(newReference).darken(lightnessMultGradient).toHex(),
-    backgroundGradientColorB: colord(newReference).lighten(lightnessMultGradient).toHex(),
+    background: darkReference,
+    backgroundGradientColorA: colord(darkReference).darken(darkLightnessMultGradient).toHex(),
+    backgroundGradientColorB: colord(darkReference).lighten(darkLightnessMultGradient).toHex(),
   },
   boxShadows: {
-    boxShadowA: colord(newReference).darken(lightnessMultShadow).toHex(),
-    boxShadowActiveA: colord(newReference).darken(lightnessMultShadow).darken(0.02).toHex(),
-    boxShadowB: colord(newReference).lighten(lightnessMultShadow).toHex(),
-    boxShadowActiveB: colord(newReference).lighten(lightnessMultShadow).lighten(0.02).toHex(),
+    boxShadowA: colord(darkReference).darken(darkLightnessMultShadow).toHex(),
+    boxShadowActiveA: colord(darkReference).darken(darkLightnessMultShadow).darken(0.02).toHex(),
+    boxShadowB: colord(darkReference).lighten(darkLightnessMultShadow).toHex(),
+    boxShadowActiveB: colord(darkReference).lighten(darkLightnessMultShadow).lighten(0.02).toHex(),
   },
   textColors: {
-    textNormal: textNormalColor,
+    textNormal: darkTextNormalColor,
     textAlert: "#fe6e6e",
     textConfirm: "#7eff9c",
   },
 };
 
-export default themeBase;
+export const lightTheme = {
+  name: "Light",
+  backgrounds: {
+    background: lightReference,
+    backgroundGradientColorA: colord(lightReference).darken(lightLightnessMultGradient).toHex(),
+    backgroundGradientColorB: colord(lightReference).lighten(lightLightnessMultGradient).toHex(),
+  },
+  boxShadows: {
+    boxShadowA: colord(lightReference).darken(lightLightnessMultShadow).toHex(),
+    boxShadowActiveA: colord(lightReference).darken(lightLightnessMultShadow).darken(0.02).toHex(),
+    boxShadowB: colord(lightReference).lighten(lightLightnessMultShadow).toHex(),
+    boxShadowActiveB: colord(lightReference).lighten(lightLightnessMultShadow).lighten(0.02).toHex(),
+  },
+  textColors: {
+    textNormal: lightTextNormalColor,
+    textAlert: "#fe6e6e",
+    textConfirm: "#7eff9c",
+  },
+};

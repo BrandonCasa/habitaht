@@ -11,7 +11,7 @@ const Button = styled.button`
         border: none;
         padding: 0.25em 1em;
         color: ${(props) => props.theme.textColors.textNormal};
-        transition: box-shadow 300ms ease-in-out;
+        transition: color 325ms ease-in-out;
       }
       & span {
         font-weight: 800;
@@ -22,12 +22,12 @@ const Button = styled.button`
       &:hover {
         box-shadow: 2px 2px 4px #ffffff00, -2px -2px 4px #ffffff00, inset 2px 2px 4px ${(props) => props.theme.boxShadows.boxShadowA},
           inset -2px -2px 4px ${(props) => props.theme.boxShadows.boxShadowB};
-        transition: box-shadow 85ms ease-in-out;
+        transition: color 325ms ease-in-out;
       }
       &:active {
         box-shadow: 2px 2px 4px #ffffff00, -2px -2px 4px #ffffff00, inset 2px 2px 2px ${(props) => props.theme.boxShadows.boxShadowActiveA},
           inset -2px -2px 2px ${(props) => props.theme.boxShadows.boxShadowActiveB};
-        transition: box-shadow 85ms ease-in-out;
+        transition: color 325ms ease-in-out;
       }
     `}
 
@@ -54,17 +54,14 @@ const Button = styled.button`
         background: ${(props) => props.theme.backgrounds.background};
         box-shadow: inset 2px 2px 4px ${(props) => props.theme.boxShadows.boxShadowA}, inset -2px -2px 4px ${(props) => props.theme.boxShadows.boxShadowB}, 2px 2px 4px #ffffff00,
           -2px -2px 4px #ffffff00;
-        transition: box-shadow 300ms ease-in-out;
       }
       &:hover {
         box-shadow: inset 2px 2px 4px #ffffff00, inset -2px -2px 4px #ffffff00, 2px 2px 4px ${(props) => props.theme.boxShadows.boxShadowA},
           -2px -2px 4px ${(props) => props.theme.boxShadows.boxShadowB};
-        transition: box-shadow 85ms ease-in-out;
       }
       &:active {
         box-shadow: inset 2px 2px 4px #ffffff00, inset -2px -2px 4px #ffffff00, 2px 2px 2px ${(props) => props.theme.boxShadows.boxShadowActiveA},
           -2px -2px 2px ${(props) => props.theme.boxShadows.boxShadowActiveB};
-        transition: box-shadow 85ms ease-in-out;
       }
     `}
 
