@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { darkTheme, lightTheme } from "../../theme/ThemeBase";
+import { darkTheme, lightTheme } from "../../theme/baseThemes";
 
 export const themeSlice = createSlice({
   name: "theme",

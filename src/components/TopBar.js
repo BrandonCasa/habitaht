@@ -2,9 +2,10 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { switchTheme } from "../redux/theme/themeSlice";
 import styled from "styled-components";
-import Button from "./Button";
-import ButtonText from "./ButtonText";
+import TextButton from "./TextButton";
+import SwitchButton from "./SwitchButton";
 import { colord } from "colord";
+import { MdDarkMode } from "react-icons/md";
 
 const TopBar = styled.div`
   background: ${(props) => props.theme.backgrounds.background};
@@ -24,18 +25,19 @@ function TopBarComponent() {
 
   return (
     <TopBar>
-      <Button
+      <TextButton
         style={{ height: "100%", marginLeft: "auto" }}
         onClick={() => {
           dispatch(switchTheme());
         }}
         noEndTransition
       >
-        <ButtonText>{currentTitle === "dark" ? "Light" : "Dark"}</ButtonText>
-      </Button>
-      <Button style={{ height: "100%", marginLeft: "16px" }} onClick={() => {}}>
-        <ButtonText>Login</ButtonText>
-      </Button>
+        <span>{currentTitle === "dark" ? "Light" : "Dark"}</span>
+        <MdDarkMode />
+      </TextButton>
+      <TextButton style={{ height: "100%", marginLeft: "16px" }} onClick={() => {}}>
+        <span>Login</span>
+      </TextButton>
     </TopBar>
   );
 }
