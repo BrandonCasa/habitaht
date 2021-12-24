@@ -39,7 +39,7 @@ const SwitchLabelStyled = styled.label`
         width: 28px;
         background: ${props.theme.baseColors.green};
         border-radius: 7.5px;
-        left: 46px;
+        left: 43px;
         top: 6px;
         transition: 250ms ease-in-out;
       }
