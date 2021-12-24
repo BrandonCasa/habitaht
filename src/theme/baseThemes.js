@@ -89,4 +89,10 @@ export const lightTheme = {
     textAlert: "#fe6e6e",
     textConfirm: "#7eff9c",
   },
+  baseColors: {
+    primary: "#009B9B",
+    secondary: "#D80032",
+    green: "#009B32",
+    red: "#7F001D",
+  },
 };
