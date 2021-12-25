@@ -12,8 +12,8 @@ const TopBar = styled.div`
   box-shadow: 2px 2px 8px ${(props) => props.theme.boxShadows.boxShadowA}, -2px -2px 8px ${(props) => props.theme.boxShadows.boxShadowB};
   border: none;
   height: 42px;
-  width: calc(100% - 32px);
-  padding: 8px 16px;
+  width: 100%;
+  padding: 8px 0px;
   display: flex;
   color: ${(props) => props.theme.textColors.textNormal};
 `;
@@ -26,8 +26,9 @@ function TopBarComponent() {
 
   return (
     <TopBar>
+      <div style={{ flexGrow: "1" }} />
       <TextButton
-        style={{ height: "100%", marginLeft: "auto" }}
+        style={{ height: "100%", margin: "0px 8px" }}
         onClick={() => {
           dispatch(switchTheme());
         }}
@@ -36,9 +37,10 @@ function TopBarComponent() {
         <span>{currentTitle === "dark" ? "Light" : "Dark"}</span>
         <MdDarkMode />
       </TextButton>
-      <TextButton style={{ height: "100%", marginLeft: "16px" }} onClick={() => {}}>
+      <TextButton style={{ height: "100%", margin: "0px 8px" }} onClick={() => {}}>
         <span>Login</span>
       </TextButton>
+      <div style={{ marginRight: "8px" }} />
     </TopBar>
   );
 }
