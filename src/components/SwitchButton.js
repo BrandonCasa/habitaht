@@ -73,7 +73,7 @@ function SwitchButton() {
   const [isOn, setIsOn] = React.useState(false);
 
   return (
-    <SwitchLabelStyled class="switch">
+    <SwitchLabelStyled className="switch">
       <input type="checkbox" hidden></input>
       <SwitchDivStyled>
         <SwitchInnerDivStyled isOn={isOn}></SwitchInnerDivStyled>

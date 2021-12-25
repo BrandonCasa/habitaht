@@ -12,11 +12,9 @@ function App() {
 
   return (
     <ThemeProvider theme={currentTheme}>
-      <div className="App" style={{ height: "100%", width: "100%", background: currentTheme.backgrounds.background }}>
+      <div className="App" style={{ height: "100%", width: "100%", background: currentTheme.backgrounds.background, display: "flex", flexDirection: "column" }}>
         <TopBarComponent />
-        <div className="MainAppContent" style={{ padding: "10px", height: "100%", width: "calc(100% - 320px)" }}>
-          <SwitchButton></SwitchButton>
-        </div>
+        <div className="MainAppContent" style={{ padding: "10px", height: "100%", width: "calc(100% - 20px)" }}></div>
       </div>
     </ThemeProvider>
   );

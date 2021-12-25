@@ -12,6 +12,7 @@ const TopBar = styled.div`
   box-shadow: 2px 2px 8px ${(props) => props.theme.boxShadows.boxShadowA}, -2px -2px 8px ${(props) => props.theme.boxShadows.boxShadowB};
   border: none;
   height: 42px;
+  width: calc(100% - 32px);
   padding: 8px 16px;
   display: flex;
   color: ${(props) => props.theme.textColors.textNormal};

@@ -20,32 +20,18 @@ lightTextNormalColor = colord({ h: 0, s: 0, l: 80 })
 export const darkTheme = {
   name: "Dark",
   backgrounds: {
-    background: darkReference,
-    backgroundGradientColorA: colord(darkReference)
-      .darken(darkLightnessMultGradient)
-      .toHex(),
-    backgroundGradientColorB: colord(darkReference)
-      .lighten(darkLightnessMultGradient)
-      .toHex(),
+    background: "#333333",
+    backgroundGradientColorA: "#242424",
+    backgroundGradientColorB: "#424242",
   },
   boxShadows: {
-    boxShadowA: colord(darkReference)
-      .darken(darkLightnessMultShadow)
-      .toHex(),
-    boxShadowActiveA: colord(darkReference)
-      .darken(darkLightnessMultShadow)
-      .darken(0.02)
-      .toHex(),
-    boxShadowB: colord(darkReference)
-      .lighten(darkLightnessMultShadow)
-      .toHex(),
-    boxShadowActiveB: colord(darkReference)
-      .lighten(darkLightnessMultShadow)
-      .lighten(0.02)
-      .toHex(),
+    boxShadowA: "#212121",
+    boxShadowActiveA: "#1c1c1c",
+    boxShadowB: "#454545",
+    boxShadowActiveB: "#4a4a4a",
   },
   textColors: {
-    textNormal: darkTextNormalColor,
+    textNormal: "#cccccc",
     textAlert: "#fe6e6e",
     textConfirm: "#7eff9c",
   },
@@ -60,32 +46,18 @@ export const darkTheme = {
 export const lightTheme = {
   name: "Light",
   backgrounds: {
-    background: lightReference,
-    backgroundGradientColorA: colord(lightReference)
-      .darken(lightLightnessMultGradient)
-      .toHex(),
-    backgroundGradientColorB: colord(lightReference)
-      .lighten(lightLightnessMultGradient)
-      .toHex(),
+    background: "#cccccc",
+    backgroundGradientColorA: "#8f8f8f",
+    backgroundGradientColorB: "#ffffff",
   },
   boxShadows: {
-    boxShadowA: colord(lightReference)
-      .darken(lightLightnessMultShadow)
-      .toHex(),
-    boxShadowActiveA: colord(lightReference)
-      .darken(lightLightnessMultShadow)
-      .darken(0.02)
-      .toHex(),
-    boxShadowB: colord(lightReference)
-      .lighten(lightLightnessMultShadow)
-      .toHex(),
-    boxShadowActiveB: colord(lightReference)
-      .lighten(lightLightnessMultShadow)
-      .lighten(0.02)
-      .toHex(),
+    boxShadowA: "#858585",
+    boxShadowActiveA: "#808080",
+    boxShadowB: "#ffffff",
+    boxShadowActiveB: "#ffffff",
   },
   textColors: {
-    textNormal: lightTextNormalColor,
+    textNormal: "#333333",
     textAlert: "#fe6e6e",
     textConfirm: "#7eff9c",
   },
