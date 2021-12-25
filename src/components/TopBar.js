@@ -1,9 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { switchTheme } from "../redux/theme/themeSlice";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import TextButton from "./TextButton";
-import SwitchButton from "./SwitchButton";
+import IconButton from "./IconButton";
 import { colord } from "colord";
 import { MdDarkMode } from "react-icons/md";
 
@@ -16,6 +16,13 @@ const TopBar = styled.div`
   padding: 8px 0px;
   display: flex;
   color: ${(props) => props.theme.textColors.textNormal};
+  ${(props) =>
+    css`
+      & .IconButton {
+        width: calc(2.97em);
+        height: auto;
+      }
+    `}
 `;
 
 function TopBarComponent() {
@@ -23,20 +30,26 @@ function TopBarComponent() {
   const dispatch = useDispatch();
 
   const [showSwapTheme, setShowSwapTheme] = React.useState(false);
-
+  // <span>{currentTitle === "dark" ? "Light" : "Dark"}</span>
   return (
     <TopBar>
       <div style={{ flexGrow: "1" }} />
-      <TextButton
-        style={{ height: "100%", margin: "0px 8px" }}
+      <IconButton
+        style={{
+          margin: "0px 8px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          float: "left",
+        }}
         onClick={() => {
           dispatch(switchTheme());
         }}
+        className="IconButton"
         noEndTransition
       >
-        <span>{currentTitle === "dark" ? "Light" : "Dark"}</span>
-        <MdDarkMode />
-      </TextButton>
+        <MdDarkMode size="1.75em" />
+      </IconButton>
       <TextButton style={{ height: "100%", margin: "0px 8px" }} onClick={() => {}}>
         <span>Login</span>
       </TextButton>
