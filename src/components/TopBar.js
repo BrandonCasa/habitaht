@@ -55,6 +55,7 @@ function TopBarComponent(props) {
 
   return (
     <TopBar>
+      <div style={{ width: "16px" }} />
       <span style={{ height: "24px" }}>{currentTitle === "dark" ? "Light" : "Dark"}</span>
       <div style={{ width: "16px" }} />
       <input type="range" min="24" max="72" value={sliderVal} onChange={sliderMove} onMouseUpCapture={adjustCustomizationEvent} style={{ height: "22px" }} />
