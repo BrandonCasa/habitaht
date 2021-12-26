@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { switchTheme } from "../redux/theme/themeSlice";
+import { setTheme, switchTheme } from "../redux/theme/themeSlice";
 import styled, { css } from "styled-components";
 import TextButton from "./TextButton";
 import IconButton from "./IconButton";
@@ -47,7 +47,8 @@ function TopBarComponent(props) {
   return (
     <TopBar>
       <div style={{ flexGrow: "1" }} />
-      <TopBarButton size={"2.25em"} />
+      <TopBarButton iconComp={<MdDarkMode size={"1.25em"} />} onClick={() => dispatch(switchTheme())} />
+      <TopBarButton iconComp={<MdAccountCircle size={"2.25em"} />} />
       <div style={{ marginRight: "8px" }} />
     </TopBar>
   );

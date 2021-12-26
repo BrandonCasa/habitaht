@@ -21,16 +21,16 @@ const TopBarButtonContainer = styled.div`
         border-radius: 5px;
         box-shadow: 2px 2px 4px ${props.theme.boxShadows.boxShadowA}, -2px -2px 4px ${props.theme.boxShadows.boxShadowB}, inset 2px 2px 4px #ffffff00, inset -2px -2px 4px #ffffff00;
         border: none;
-        padding: 0px calc(calc(${props.theme.componentCustomization.topBar.self.height} - ${props.size}) / 2);
+        padding: 0px calc(calc(${props.theme.componentCustomization.topBar.self.height} - ${props.iconComp.props.size}) / 2);
         margin-left: ${props.theme.componentCustomization.topBar.iconButton.marginLeft};
         margin-right: ${props.theme.componentCustomization.topBar.iconButton.marginRight};
         color: ${props.theme.textColors.textNormal};
       }
       & .iconButton:hover {
-        box-shadow: 2px 2px 4px #ffffff00, -2px -2px 4px #ffffff00, inset 2px 2px 4px ${props.theme.boxShadows.boxShadowA}, inset -2px -2px 4px ${props.theme.boxShadows.boxShadowB};
+        box-shadow: inset 2px 2px 4px ${props.theme.boxShadows.boxShadowA}, inset -2px -2px 4px ${props.theme.boxShadows.boxShadowB};
       }
       & .iconButton:active {
-        box-shadow: 2px 2px 4px #ffffff00, -2px -2px 4px #ffffff00, inset 2px 2px 2px ${props.theme.boxShadows.boxShadowActiveA}, inset -2px -2px 2px ${props.theme.boxShadows.boxShadowActiveB};
+        box-shadow: inset 2px 2px 2px ${props.theme.boxShadows.boxShadowActiveA}, inset -2px -2px 2px ${props.theme.boxShadows.boxShadowActiveB};
       }
       & .dropdown-content {
         display: none;
@@ -48,13 +48,12 @@ function TopBarButton(props) {
   const theme = useTheme();
 
   const [showDropdown, setShowDropdown] = React.useState(false);
-
   return (
-    <TopBarButtonContainer size={props.size}>
-      <button className="iconButton">
-        <MdAccountCircle size={props.size} />
+    <TopBarButtonContainer iconComp={props.iconComp}>
+      <button className="iconButton" onClick={props.onClick}>
+        {props.iconComp}
       </button>
-      <div class="dropdown-content" style={{}}></div>
+      <div className="dropdown-content"></div>
     </TopBarButtonContainer>
   );
 }
