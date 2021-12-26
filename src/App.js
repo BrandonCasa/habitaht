@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ThemeProvider } from "styled-components";
 import TopBarComponent from "./components/TopBar";
 import SwitchButton from "./components/SwitchButton";
+import { adjustCustomization } from "./redux/theme/themeSlice";
 
 function App() {
   const currentThemeTitle = useSelector((state) => state.themeState.title);

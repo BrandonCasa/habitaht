@@ -17,15 +17,19 @@ export const themeSlice = createSlice({
       state.currentTheme = state.savedThemes[action.payload];
     },
     switchTheme: (state) => {
-      console.log(state.title);
       state.title = state.title === "dark" ? "light" : "dark";
       state.currentTheme = state.savedThemes[state.title];
+      return;
+    },
+    adjustCustomization: (state, action) => {
+      console.log(action.payload);
+      state.currentTheme.componentCustomization = action.payload.newCustomization;
       return;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setTheme, switchTheme } = themeSlice.actions;
+export const { setTheme, switchTheme, adjustCustomization } = themeSlice.actions;
 
 export default themeSlice.reducer;

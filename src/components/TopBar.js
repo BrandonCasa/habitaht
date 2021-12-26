@@ -7,6 +7,7 @@ import IconButton from "./IconButton";
 import { colord } from "colord";
 import { MdDarkMode, MdAccountCircle } from "react-icons/md";
 import TopBarButton from "./TopBarButton";
+import { adjustCustomization } from "../redux/theme/themeSlice";
 
 const TopBar = styled.div`
   ${(props) =>
@@ -35,17 +36,28 @@ const TopBar = styled.div`
 
 function TopBarComponent(props) {
   const currentTitle = useSelector((state) => state.themeState.title);
+  const currentTheme = useSelector((state) => state.themeState.currentTheme);
   const dispatch = useDispatch();
 
   const [showSwapTheme, setShowSwapTheme] = React.useState(false);
-  // <span>{currentTitle === "dark" ? "Light" : "Dark"}</span>
-  /*
-  <TextButton style={{ height: "100%", margin: "0px 8px" }} onClick={() => {}}>
-    <span>Login</span>
-  </TextButton>
-  */
+  const [sliderVal, setSliderVal] = React.useState(currentTheme.componentCustomization.topBar.self.height.replace("px", ""));
+
+  const adjustCustomizationEvent = () => {
+    let newCustomization = JSON.parse(JSON.stringify(currentTheme.componentCustomization));
+    newCustomization.topBar.self.height = `${sliderVal}px`;
+    dispatch(adjustCustomization({ newCustomization }));
+    return;
+  };
+  const sliderMove = (event) => {
+    setSliderVal(event.target.value);
+    return;
+  };
+
   return (
     <TopBar>
+      <span style={{ height: "24px" }}>{currentTitle === "dark" ? "Light" : "Dark"}</span>
+      <div style={{ width: "16px" }} />
+      <input type="range" min="24" max="72" value={sliderVal} onChange={sliderMove} onMouseUpCapture={adjustCustomizationEvent} style={{ height: "22px" }} />
       <div style={{ flexGrow: "1" }} />
       <TopBarButton iconComp={<MdDarkMode size={"1.25em"} />} onClick={() => dispatch(switchTheme())} />
       <TopBarButton iconComp={<MdAccountCircle size={"2.25em"} />} />
