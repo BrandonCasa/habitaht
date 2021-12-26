@@ -5,7 +5,7 @@ const IconButton = styled.button`
     css`
       & {
         background: ${props.theme.backgrounds.background};
-        border-radius: 25%;
+        border-radius: 5px;
         box-shadow: 2px 2px 4px ${props.theme.boxShadows.boxShadowA}, -2px -2px 4px ${props.theme.boxShadows.boxShadowB}, inset 2px 2px 4px #ffffff00, inset -2px -2px 4px #ffffff00;
         border: none;
         padding: 0px 0px;

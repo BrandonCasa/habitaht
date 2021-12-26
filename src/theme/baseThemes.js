@@ -1,21 +1,16 @@
-import { colord } from "colord";
-
-const darkReference = colord({ h: 0, s: 0, l: 20 }).toHex();
-const lightReference = colord({ h: 0, s: 0, l: 80 }).toHex();
-
-const darkLightnessMultShadow = (colord(darkReference).toHsl().l / 100) * 0.35;
-const darkLightnessMultGradient = (colord(darkReference).toHsl().l / 100) * 0.3;
-const lightLightnessMultShadow = (colord(lightReference).toHsl().l / 100) * 0.35;
-const lightLightnessMultGradient = (colord(lightReference).toHsl().l / 100) * 0.3;
-
-let darkTextNormalColor = colord(darkReference).toHsl().l;
-darkTextNormalColor = colord({ h: 0, s: 0, l: 20 })
-  .invert()
-  .toHex();
-let lightTextNormalColor = colord(lightReference).toHsl().l;
-lightTextNormalColor = colord({ h: 0, s: 0, l: 80 })
-  .invert()
-  .toHex();
+const componentCustomization = {
+  topBar: {
+    self: {
+      height: "36px",
+      paddingTop: "8px",
+      paddingBottom: "8px",
+    },
+    iconButton: {
+      marginLeft: "8px",
+      marginRight: "8px",
+    },
+  },
+};
 
 export const darkTheme = {
   name: "Dark",
@@ -41,6 +36,7 @@ export const darkTheme = {
     green: "#009B32",
     red: "#7F001D",
   },
+  componentCustomization: componentCustomization,
 };
 
 export const lightTheme = {
@@ -67,4 +63,5 @@ export const lightTheme = {
     green: "#009B32",
     red: "#7F001D",
   },
+  componentCustomization: componentCustomization,
 };
