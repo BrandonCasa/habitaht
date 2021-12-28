@@ -24,6 +24,7 @@ export const themeSlice = createSlice({
     adjustCustomization: (state, action) => {
       console.log(action.payload);
       state.currentTheme.componentCustomization = action.payload.newCustomization;
+      state.savedThemes[state.title].componentCustomization = action.payload.newCustomization;
       return;
     },
   },
