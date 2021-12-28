@@ -40,9 +40,11 @@ function TopBarComponent(props) {
   const dispatch = useDispatch();
 
   const [showSwapTheme, setShowSwapTheme] = React.useState(false);
+  const [sliderMouseDown, setSliderMouseDown] = React.useState(false);
   const [sliderVal, setSliderVal] = React.useState(currentTheme.componentCustomization.topBar.self.height.replace("px", ""));
 
   const adjustCustomizationEvent = () => {
+    setSliderMouseDown(false);
     let newCustomization = JSON.parse(JSON.stringify(currentTheme.componentCustomization));
     newCustomization.topBar.self.height = `${sliderVal}px`;
     dispatch(adjustCustomization({ newCustomization }));
@@ -58,7 +60,16 @@ function TopBarComponent(props) {
       <div style={{ width: "16px" }} />
       <span style={{ height: "24px" }}>{currentTitle === "dark" ? "Dark" : "Light"}</span>
       <div style={{ width: "16px" }} />
-      <input type="range" min="24" max="72" value={sliderVal} onChange={sliderMove} onMouseUpCapture={adjustCustomizationEvent} style={{ height: "22px" }} />
+      <input
+        type="range"
+        min="24"
+        max="72"
+        value={sliderMouseDown ? sliderVal : currentTheme.componentCustomization.topBar.self.height.replace("px", "")}
+        onChange={sliderMove}
+        onMouseUpCapture={adjustCustomizationEvent}
+        onMouseDownCapture={() => setSliderMouseDown(true)}
+        style={{ height: "22px" }}
+      />
       <div style={{ flexGrow: "1" }} />
       <TopBarButton iconComp={<MdDarkMode size={"1.25em"} />} onClick={() => dispatch(switchTheme())} />
       <TopBarButton iconComp={<MdAccountCircle size={"2.25em"} />} />
