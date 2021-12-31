@@ -1,20 +1,14 @@
+import { colord } from "colord";
 import React from "react";
 import { useDispatch } from "react-redux";
 import styled, { css } from "styled-components";
-import { colord } from "colord";
 
 const SwitchLabelStyled = styled.label`
   ${(props) =>
     css`
       input[type="checkbox"] + div div {
-        box-shadow: 0 0 5px 1px
-          ${colord(props.theme.baseColors.green)
-            .lighten(0.1)
-            .toHex()};
-        outline: 1.5px solid
-          ${colord(props.theme.baseColors.green)
-            .lighten(0.1)
-            .toHex()};
+        box-shadow: 0 0 5px 1px ${colord(props.theme.baseColors.green).lighten(0.1).toHex()};
+        outline: 1.5px solid ${colord(props.theme.baseColors.green).lighten(0.1).toHex()};
         position: absolute;
         height: 22px;
         width: 22px;
@@ -26,14 +20,8 @@ const SwitchLabelStyled = styled.label`
       }
 
       input[type="checkbox"]:checked + div div {
-        box-shadow: 0 0 10px 2px
-          ${colord(props.theme.baseColors.green)
-            .lighten(0.05)
-            .toHex()};
-        outline: 1.5px solid
-          ${colord(props.theme.baseColors.green)
-            .lighten(0.05)
-            .toHex()};
+        box-shadow: 0 0 10px 2px ${colord(props.theme.baseColors.green).lighten(0.05).toHex()};
+        outline: 1.5px solid ${colord(props.theme.baseColors.green).lighten(0.05).toHex()};
         position: absolute;
         height: 28px;
         width: 28px;
@@ -70,13 +58,11 @@ const SwitchDivStyled = styled.div`
 function SwitchButton() {
   const dispatch = useDispatch();
 
-  const [isOn, setIsOn] = React.useState(false);
-
   return (
     <SwitchLabelStyled className="switch">
       <input type="checkbox" hidden></input>
       <SwitchDivStyled>
-        <SwitchInnerDivStyled isOn={isOn}></SwitchInnerDivStyled>
+        <SwitchInnerDivStyled></SwitchInnerDivStyled>
       </SwitchDivStyled>
     </SwitchLabelStyled>
   );

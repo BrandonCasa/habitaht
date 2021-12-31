@@ -1,9 +1,10 @@
 const componentCustomization = {
+  general: {
+    paddingA: "8px",
+  },
   topBar: {
     self: {
       height: "36px",
-      paddingTop: "8px",
-      paddingBottom: "8px",
     },
     iconButton: {
       marginLeft: "8px",

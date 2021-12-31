@@ -1,13 +1,9 @@
 import React from "react";
+import { MdAccountCircle, MdDarkMode } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-import { setTheme, switchTheme } from "../redux/theme/themeSlice";
 import styled, { css } from "styled-components";
-import TextButton from "./TextButton";
-import IconButton from "./IconButton";
-import { colord } from "colord";
-import { MdDarkMode, MdAccountCircle } from "react-icons/md";
+import { adjustCustomization, switchTheme } from "../redux/theme/themeSlice";
 import TopBarButton from "./TopBarButton";
-import { adjustCustomization } from "../redux/theme/themeSlice";
 
 const TopBar = styled.div`
   ${(props) =>
@@ -18,8 +14,8 @@ const TopBar = styled.div`
         border: none;
         width: 100%;
         height: ${props.theme.componentCustomization.topBar.self.height};
-        padding-top: ${props.theme.componentCustomization.topBar.self.paddingTop};
-        padding-bottom: ${props.theme.componentCustomization.topBar.self.paddingBottom};
+        padding-top: ${props.theme.componentCustomization.general.paddingA};
+        padding-bottom: ${props.theme.componentCustomization.general.paddingA};
         display: flex;
         color: ${(props) => props.theme.textColors.textNormal};
       }
@@ -39,7 +35,7 @@ function TopBarComponent(props) {
   const currentTheme = useSelector((state) => state.themeState.currentTheme);
   const dispatch = useDispatch();
 
-  const [showSwapTheme, setShowSwapTheme] = React.useState(false);
+  //const [showSwapTheme, setShowSwapTheme] = React.useState(false);
   const [sliderMouseDown, setSliderMouseDown] = React.useState(false);
   const [sliderVal, setSliderVal] = React.useState(currentTheme.componentCustomization.topBar.self.height.replace("px", ""));
 
@@ -47,6 +43,7 @@ function TopBarComponent(props) {
     setSliderMouseDown(false);
     let newCustomization = JSON.parse(JSON.stringify(currentTheme.componentCustomization));
     newCustomization.topBar.self.height = `${sliderVal}px`;
+    newCustomization.general.paddingA = `${sliderVal * 0.22222222222}px`;
     dispatch(adjustCustomization({ newCustomization }));
     return;
   };
@@ -58,11 +55,11 @@ function TopBarComponent(props) {
   return (
     <TopBar>
       <div style={{ width: "16px" }} />
-      <span style={{ height: "24px" }}>{currentTitle === "dark" ? "Dark" : "Light"}</span>
-      <div style={{ width: "16px" }} />
+      <span style={{ height: "24px" }}>General Scale: </span>
+      <div style={{ width: currentTheme.componentCustomization.general.paddingA }} />
       <input
         type="range"
-        min="24"
+        min="22"
         max="72"
         value={sliderMouseDown ? sliderVal : currentTheme.componentCustomization.topBar.self.height.replace("px", "")}
         onChange={sliderMove}
@@ -70,10 +67,13 @@ function TopBarComponent(props) {
         onMouseDownCapture={() => setSliderMouseDown(true)}
         style={{ height: "22px" }}
       />
+      <div style={{ width: "32px" }} />
+      <span style={{ height: "24px" }}>Theme: {currentTitle === "dark" ? "Dark" : "Light"}</span>
+      <div style={{ width: "16px" }} />
       <div style={{ flexGrow: "1" }} />
-      <TopBarButton iconComp={<MdDarkMode size={"1.25em"} />} onClick={() => dispatch(switchTheme())} />
-      <TopBarButton iconComp={<MdAccountCircle size={"2.25em"} />} />
-      <div style={{ marginRight: "8px" }} />
+      <TopBarButton iconComp={<MdDarkMode size={`calc(${currentTheme.componentCustomization.general.paddingA} * 2)`} />} onClick={() => dispatch(switchTheme())} />
+      <TopBarButton iconComp={<MdAccountCircle size={`calc(${currentTheme.componentCustomization.general.paddingA} * 4)`} />} />
+      <div style={{ marginRight: currentTheme.componentCustomization.general.paddingA }} />
     </TopBar>
   );
 }

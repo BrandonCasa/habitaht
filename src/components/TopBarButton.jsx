@@ -1,11 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { switchTheme } from "../redux/theme/themeSlice";
-import styled, { css, useTheme } from "styled-components";
-import TextButton from "./TextButton";
-import IconButton from "./IconButton";
-import { colord } from "colord";
-import { MdDarkMode, MdAccountCircle } from "react-icons/md";
+import styled, { css } from "styled-components";
 
 const TopBarButtonContainer = styled.div`
   ${(props) =>
@@ -22,8 +16,8 @@ const TopBarButtonContainer = styled.div`
         box-shadow: 2px 2px 4px ${props.theme.boxShadows.boxShadowA}, -2px -2px 4px ${props.theme.boxShadows.boxShadowB}, inset 2px 2px 4px #ffffff00, inset -2px -2px 4px #ffffff00;
         border: none;
         padding: 0px calc(calc(${props.theme.componentCustomization.topBar.self.height} - ${props.iconComp.props.size}) / 2);
-        margin-left: ${props.theme.componentCustomization.topBar.iconButton.marginLeft};
-        margin-right: ${props.theme.componentCustomization.topBar.iconButton.marginRight};
+        margin-left: ${props.theme.componentCustomization.general.paddingA};
+        margin-right: ${props.theme.componentCustomization.general.paddingA};
         color: ${props.theme.textColors.textNormal};
       }
       & .iconButton:hover {
@@ -44,10 +38,10 @@ const TopBarButtonContainer = styled.div`
 `;
 
 function TopBarButton(props) {
-  const dispatch = useDispatch();
-  const theme = useTheme();
+  //const dispatch = useDispatch();
+  //const theme = useTheme();
 
-  const [showDropdown, setShowDropdown] = React.useState(false);
+  //const [showDropdown, setShowDropdown] = React.useState(false);
   return (
     <TopBarButtonContainer iconComp={props.iconComp}>
       <button className="iconButton" onClick={props.onClick}>
