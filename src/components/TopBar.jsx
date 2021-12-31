@@ -54,7 +54,7 @@ function TopBarComponent(props) {
 
   return (
     <TopBar>
-      <div style={{ width: "16px" }} />
+      <div style={{ width: currentTheme.componentCustomization.general.paddingA }} />
       <span style={{ height: "24px" }}>General Scale: </span>
       <div style={{ width: currentTheme.componentCustomization.general.paddingA }} />
       <input
