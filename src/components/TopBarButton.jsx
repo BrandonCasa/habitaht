@@ -15,9 +15,8 @@ const TopBarButtonContainer = styled.div`
         border-radius: 5px;
         box-shadow: 2px 2px 4px ${props.theme.boxShadows.boxShadowA}, -2px -2px 4px ${props.theme.boxShadows.boxShadowB}, inset 2px 2px 4px #ffffff00, inset -2px -2px 4px #ffffff00;
         border: none;
-        padding: 0px calc(calc(${props.theme.componentCustomization.topBar.self.height} - ${props.iconComp.props.size}) / 2);
-        margin-left: ${props.theme.componentCustomization.general.paddingA};
-        margin-right: ${props.theme.componentCustomization.general.paddingA};
+        padding: 0px calc((36px - ${props.iconComp.props.size}) / 2);
+        margin: 0px 4px;
         color: ${props.theme.textColors.textNormal};
       }
       & .iconButton:hover {
