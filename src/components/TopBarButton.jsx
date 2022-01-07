@@ -5,15 +5,17 @@ const TopBarButtonContainer = styled.div`
   ${(props) =>
     css`
       & {
+        pointer-events: inherit;
         display: flex;
       }
       & .iconButton {
+        pointer-events: inherit;
         display: flex;
         align-items: center;
         justify-content: center;
         background: ${props.theme.backgrounds.background};
         border-radius: 5px;
-        box-shadow: 2px 2px 4px ${props.theme.boxShadows.boxShadowA}, -2px -2px 4px ${props.theme.boxShadows.boxShadowB}, inset 2px 2px 4px #ffffff00, inset -2px -2px 4px #ffffff00;
+        box-shadow: 2px 2px 4px ${props.theme.boxShadows.boxShadowA}, -2px -2px 4px ${props.theme.boxShadows.boxShadowB};
         border: none;
         padding: 0px calc((36px - ${props.iconComp.props.size}) / 2);
         margin: 0px 4px;

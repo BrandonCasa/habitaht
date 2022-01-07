@@ -94,10 +94,14 @@ function TopBarComponent(props) {
   return (
     <TopBar>
       <div style={{ width: "8px" }} />
-      <TopBarButton iconComp={<img src={AppLogo} alt="logo" size={`36px`} />} />
+      <div style={{ pointerEvents: "none", display: "flex" }}>
+        <TopBarButton iconComp={<img src={AppLogo} alt="logo" size={`36px`} />} />
+      </div>
       <div style={{ flexGrow: "1" }} />
       <DarkLightSwitch />
-      <TopBarButton iconComp={<MdAccountCircle size={`calc(${currentTheme.componentCustomization.general.paddingA} * 4)`} />} />
+      <div style={{ pointerEvents: "auto", display: "flex" }}>
+        <TopBarButton iconComp={<MdAccountCircle size={`calc(${currentTheme.componentCustomization.general.paddingA} * 4)`} />} />
+      </div>
       <div style={{ width: "8px" }} />
     </TopBar>
   );
