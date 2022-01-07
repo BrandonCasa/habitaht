@@ -2,8 +2,9 @@ import React from "react";
 import { MdAccountCircle, MdDarkMode } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import styled, { css } from "styled-components";
-import { adjustCustomization, switchTheme } from "../redux/theme/themeSlice";
+import { switchTheme } from "../redux/theme/themeSlice";
 import TopBarButton from "./TopBarButton";
+import AppLogo from "../icons/AppLogo.svg";
 
 const TopBar = styled.div`
   ${(props) =>
@@ -93,7 +94,7 @@ function TopBarComponent(props) {
   return (
     <TopBar>
       <div style={{ width: "8px" }} />
-      <span style={{ height: "24px", marginLeft: "4px" }}>Theme: {currentTitle === "dark" ? "Dark" : "Light"}</span>
+      <TopBarButton iconComp={<img src={AppLogo} alt="logo" size={`36px`} />} />
       <div style={{ flexGrow: "1" }} />
       <DarkLightSwitch />
       <TopBarButton iconComp={<MdAccountCircle size={`calc(${currentTheme.componentCustomization.general.paddingA} * 4)`} />} />
